@@ -1,0 +1,28 @@
+///$tab 1. Facts
+employees:
+LOAD
+    if(EMPLOYEE_ID='-',null(),EMPLOYEE_ID) as EMPLOYEE_ID, 
+    if(FIRST_NAME='-',null(),FIRST_NAME) as FIRST_NAME,
+    if(LAST_NAME='-',null(),LAST_NAME) as LAST_NAME,
+    if(EMAIL='-',null(),EMAIL) as EMAIL,
+    if(PHONE_NUMBER='-',null(),PHONE_NUMBER) as PHONE_NUMBER,
+    
+    DATE(if(HIRE_DATE='-',null(),date#(HIRE_DATE,'DD-MMM-YY'))) as HIRE_DATE,
+    if(JOB_ID='-',null(),JOB_ID) as JOB_ID, 
+    if(SALARY='-',null(),SALARY) as SALARY,
+    if(COMMISSION_PCT='-',null(),COMMISSION_PCT) as COMMISSION_PCT,
+    if(MANAGER_ID='-',null(),MANAGER_ID) as MANAGER_ID,
+    if(DEPARTMENT_ID='-',null(),DEPARTMENT_ID) as DEPARTMENT_ID
+FROM [lib://AttachedFiles/employees.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+// Concatenate(employees)
+// job_history:
+// LOAD
+//     EMPLOYEE_ID,	//123456
+//     START_DATE,
+//     END_DATE,
+//     JOB_ID,
+//     DEPARTMENT_ID
+// FROM [lib://AttachedFiles/job_history.csv]
+// (txt, codepage is 28591, embedded labels, delimiter is ',', msq);

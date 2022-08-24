@@ -1,0 +1,62 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "ee2c5846-3465-45ee-904a-e8e64cce8b5b",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Calculate the number of employees hired in 2008",
+      "description": "Calculate the number of employees hired in 2008 (HIRE_DATE). Please use the following fields and functions in set analysis: EMPLOYEE_ID, HIRE_DATE, year()"
+    },
+    "rank": 25,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 12,
+    "cells": [
+      {
+        "name": "HVKBhz",
+        "type": "kpi",
+        "col": 0,
+        "row": 0,
+        "colspan": 24,
+        "rowspan": 12,
+        "bounds": {
+          "y": 0,
+          "x": 0,
+          "width": 100,
+          "height": 100
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "gridResolution": "small",
+    "layoutOptions": {
+      "mobileLayout": "LIST"
+    },
+    "gridMode": "edit",
+    "showCondition": {
+      "qStringExpression": {
+        "qExpr": "len('contains_exercise')"
+      }
+    }
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "HVKBhz",
+          "qType": "kpi"
+        },
+        "qExtendsId": "e172f676-b0a5-45f4-866f-f10a85c53d5f",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    }
+  ]
+}

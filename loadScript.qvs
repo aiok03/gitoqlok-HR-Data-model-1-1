@@ -1,0 +1,102 @@
+///$tab Main
+SET ThousandSep=' ';
+SET DecimalSep=',';
+SET MoneyThousandSep=' ';
+SET MoneyDecimalSep=',';
+SET MoneyFormat='# ##0,00 ₽;-# ##0,00 ₽';
+SET TimeFormat='h:mm:ss';
+SET DateFormat='DD.MM.YYYY';
+SET TimestampFormat='DD.MM.YYYY h:mm:ss[.fff]';
+SET FirstWeekDay=0;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='ru-RU';
+SET MonthNames='янв.;февр.;мар.;апр.;мая;июн.;июл.;авг.;сент.;окт.;нояб.;дек.';
+SET LongMonthNames='январь;февраль;март;апрель;май;июнь;июль;август;сентябрь;октябрь;ноябрь;декабрь';
+SET DayNames='пн;вт;ср;чт;пт;сб;вс';
+SET LongDayNames='понедельник;вторник;среда;четверг;пятница;суббота;воскресенье';
+SET NumericalAbbreviation='3:ТЫС;6:МЛН;9:МЛРД;12:ТРЛН;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+///$tab 1. Facts
+employees:
+LOAD
+    if(EMPLOYEE_ID='-',null(),EMPLOYEE_ID) as EMPLOYEE_ID, 
+    if(FIRST_NAME='-',null(),FIRST_NAME) as FIRST_NAME,
+    if(LAST_NAME='-',null(),LAST_NAME) as LAST_NAME,
+    if(EMAIL='-',null(),EMAIL) as EMAIL,
+    if(PHONE_NUMBER='-',null(),PHONE_NUMBER) as PHONE_NUMBER,
+    
+    DATE(if(HIRE_DATE='-',null(),date#(HIRE_DATE,'DD-MMM-YY'))) as HIRE_DATE,
+    if(JOB_ID='-',null(),JOB_ID) as JOB_ID, 
+    if(SALARY='-',null(),SALARY) as SALARY,
+    if(COMMISSION_PCT='-',null(),COMMISSION_PCT) as COMMISSION_PCT,
+    if(MANAGER_ID='-',null(),MANAGER_ID) as MANAGER_ID,
+    if(DEPARTMENT_ID='-',null(),DEPARTMENT_ID) as DEPARTMENT_ID
+FROM [lib://AttachedFiles/employees.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+// Concatenate(employees)
+// job_history:
+// LOAD
+//     EMPLOYEE_ID,	//123456
+//     START_DATE,
+//     END_DATE,
+//     JOB_ID,
+//     DEPARTMENT_ID
+// FROM [lib://AttachedFiles/job_history.csv]
+// (txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+///$tab 2. Dimensions
+departments:
+LOAD
+    if(DEPARTMENT_ID='-',null(),DEPARTMENT_ID) as DEPARTMENT_ID,
+    if(DEPARTMENT_NAME='-',null(),DEPARTMENT_NAME) as DEPARTMENT_NAME,
+    if(LOCATION_ID='-',null(),LOCATION_ID) as LOCATION_ID
+FROM [lib://AttachedFiles/departments.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+left join(departments)
+locations:
+LOAD
+    if(LOCATION_ID='-',null(),LOCATION_ID) as LOCATION_ID,
+    if(STREET_ADDRESS='-',null(),STREET_ADDRESS) as STREET_ADDRESS,
+    if(POSTAL_CODE='-',null(),POSTAL_CODE) as POSTAL_CODE,
+    if(CITY='-',null(),CITY) as CITY,
+    if(STATE_PROVINCE='-',null(),STATE_PROVINCE) as STATE_PROVINCE,
+    if(COUNTRY_ID='-',null(),COUNTRY_ID) as COUNTRY_ID
+FROM [lib://AttachedFiles/locations.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+left join(departments)
+countries:
+LOAD
+    if(COUNTRY_ID='-',null(),COUNTRY_ID) as COUNTRY_ID,
+    if(COUNTRY_NAME='-',null(),COUNTRY_NAME) as COUNTRY_NAME,
+    if(REGION_ID='-',null(),REGION_ID) as REGION_ID
+FROM [lib://AttachedFiles/countries.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+left join(departments)
+regions:
+LOAD
+    if(REGION_ID='-',null(),REGION_ID) as REGION_ID,
+    if(REGION_NAME='-',null(),REGION_NAME) as REGION_NAME
+FROM [lib://AttachedFiles/regions.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+jobs:
+LOAD
+    if(JOB_ID='-',null(),JOB_ID) as JOB_ID,
+    if(JOB_TITLE='-',null(),JOB_TITLE) as JOB_TITLE,
+    if(MIN_SALARY='-',null(),MIN_SALARY) as MIN_SALARY,
+    if(MAX_SALARY='-',null(),MAX_SALARY) as MAX_SALARY
+FROM [lib://AttachedFiles/jobs.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+///$tab exit script
+exit script;

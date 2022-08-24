@@ -1,0 +1,62 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "88e80338-6be4-4ee3-b331-b9a0714cbabc",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Calculate the number of employees who work as an IT specialist",
+      "description": "Calculate quantity of employees with JOB_ID 'IT_PROG'. Please use the following fields in set analysis: EMPLOYEE_ID,JOB_ID"
+    },
+    "rank": 1,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 12,
+    "cells": [
+      {
+        "name": "qeCsn",
+        "type": "kpi",
+        "col": 0,
+        "row": 0,
+        "colspan": 24,
+        "rowspan": 12,
+        "bounds": {
+          "y": 0,
+          "x": 0,
+          "width": 100,
+          "height": 100
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "gridResolution": "small",
+    "layoutOptions": {
+      "mobileLayout": "LIST"
+    },
+    "gridMode": "edit",
+    "showCondition": {
+      "qStringExpression": {
+        "qExpr": "len('contains_exercise')"
+      }
+    }
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "qeCsn",
+          "qType": "kpi"
+        },
+        "qExtendsId": "92e7c7c3-5c98-496f-ba72-dd001840c202",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    }
+  ]
+}

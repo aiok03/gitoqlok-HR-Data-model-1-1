@@ -1,0 +1,73 @@
+{
+  "qTitle": "HR Data model (Аружан)(1)(1)",
+  "qLastReloadTime": "2022-08-11T11:41:10.185Z",
+  "qSavedInProductVersion": "12.1327.2",
+  "qThumbnail": {},
+  "createdDate": "2022-08-10T10:20:46.222Z",
+  "modifiedDate": "2022-08-12T05:23:35.577Z",
+  "published": false,
+  "publishTime": "1753-01-01T00:00:00.000Z",
+  "privileges": [
+    "read",
+    "update",
+    "delete",
+    "publish",
+    "exportdata",
+    "offlineaccess",
+    "duplicate"
+  ],
+  "description": "",
+  "dynamicColor": "",
+  "create": [
+    {
+      "resource": "sheet",
+      "canCreate": true
+    },
+    {
+      "resource": "bookmark",
+      "canCreate": true
+    },
+    {
+      "resource": "snapshot",
+      "canCreate": true
+    },
+    {
+      "resource": "story",
+      "canCreate": true
+    },
+    {
+      "resource": "dimension",
+      "canCreate": true
+    },
+    {
+      "resource": "measure",
+      "canCreate": true
+    },
+    {
+      "resource": "masterobject",
+      "canCreate": true
+    },
+    {
+      "resource": "folderconnection",
+      "canCreate": false
+    },
+    {
+      "resource": "oledbconnection",
+      "canCreate": true
+    },
+    {
+      "resource": "odbcconnection",
+      "canCreate": true
+    },
+    {
+      "resource": "internetconnection",
+      "canCreate": true
+    },
+    {
+      "resource": "customconnection",
+      "canCreate": true
+    }
+  ],
+  "stream": null,
+  "canCreateDataConnections": true
+}

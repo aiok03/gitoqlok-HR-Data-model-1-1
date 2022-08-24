@@ -1,0 +1,244 @@
+[
+  {
+    "qName": "CITY",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "COMMISSION_PCT",
+    "qTags": [
+      "$numeric"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "COUNTRY_ID",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "COUNTRY_NAME",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "DEPARTMENT_ID",
+    "qTags": [
+      "$key",
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "employees",
+      "departments"
+    ]
+  },
+  {
+    "qName": "DEPARTMENT_NAME",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "EMAIL",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "EMPLOYEE_ID",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "FIRST_NAME",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "HIRE_DATE",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "JOB_ID",
+    "qTags": [
+      "$key",
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "employees",
+      "jobs"
+    ]
+  },
+  {
+    "qName": "JOB_TITLE",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "jobs"
+    ]
+  },
+  {
+    "qName": "LAST_NAME",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "LOCATION_ID",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "MANAGER_ID",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "MAX_SALARY",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "jobs"
+    ]
+  },
+  {
+    "qName": "MIN_SALARY",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "jobs"
+    ]
+  },
+  {
+    "qName": "PHONE_NUMBER",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "POSTAL_CODE",
+    "qTags": [],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "REGION_ID",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "REGION_NAME",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "SALARY",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "employees"
+    ]
+  },
+  {
+    "qName": "STATE_PROVINCE",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  },
+  {
+    "qName": "STREET_ADDRESS",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "departments"
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+///$tab 2. Dimensions
+departments:
+LOAD
+    if(DEPARTMENT_ID='-',null(),DEPARTMENT_ID) as DEPARTMENT_ID,
+    if(DEPARTMENT_NAME='-',null(),DEPARTMENT_NAME) as DEPARTMENT_NAME,
+    if(LOCATION_ID='-',null(),LOCATION_ID) as LOCATION_ID
+FROM [lib://AttachedFiles/departments.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+left join(departments)
+locations:
+LOAD
+    if(LOCATION_ID='-',null(),LOCATION_ID) as LOCATION_ID,
+    if(STREET_ADDRESS='-',null(),STREET_ADDRESS) as STREET_ADDRESS,
+    if(POSTAL_CODE='-',null(),POSTAL_CODE) as POSTAL_CODE,
+    if(CITY='-',null(),CITY) as CITY,
+    if(STATE_PROVINCE='-',null(),STATE_PROVINCE) as STATE_PROVINCE,
+    if(COUNTRY_ID='-',null(),COUNTRY_ID) as COUNTRY_ID
+FROM [lib://AttachedFiles/locations.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+left join(departments)
+countries:
+LOAD
+    if(COUNTRY_ID='-',null(),COUNTRY_ID) as COUNTRY_ID,
+    if(COUNTRY_NAME='-',null(),COUNTRY_NAME) as COUNTRY_NAME,
+    if(REGION_ID='-',null(),REGION_ID) as REGION_ID
+FROM [lib://AttachedFiles/countries.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+left join(departments)
+regions:
+LOAD
+    if(REGION_ID='-',null(),REGION_ID) as REGION_ID,
+    if(REGION_NAME='-',null(),REGION_NAME) as REGION_NAME
+FROM [lib://AttachedFiles/regions.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
+
+
+jobs:
+LOAD
+    if(JOB_ID='-',null(),JOB_ID) as JOB_ID,
+    if(JOB_TITLE='-',null(),JOB_TITLE) as JOB_TITLE,
+    if(MIN_SALARY='-',null(),MIN_SALARY) as MIN_SALARY,
+    if(MAX_SALARY='-',null(),MAX_SALARY) as MAX_SALARY
+FROM [lib://AttachedFiles/jobs.csv]
+(txt, codepage is 28591, embedded labels, delimiter is ',', msq);
